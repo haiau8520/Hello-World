@@ -1,8 +1,10 @@
 pipeline {
     agent any
     stages {
-        steps{
-            powershell """cd "C:/Users/stylvn077/Desktop/.terraform/new" """
+        node{
+            steps{
+                powershell """cd "C:/Users/stylvn077/Desktop/.terraform/new" """
+            }
         }
         stage('Init') {
             steps {
