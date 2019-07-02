@@ -8,9 +8,8 @@ pipeline {
         }
         stage('TF Plan') {
             steps {
-                container('terraform') {
                     powershell "terraform plan -out=myplan"
-                }
+                
             }
         }
         stage('Approval'){
