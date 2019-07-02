@@ -9,7 +9,7 @@ pipeline {
         stage('TF Plan') {
             steps {
                 container('terraform') {
-                    powershell "terraform plan -var-file=terraform.tfvars -out=myplan"
+                    powershell "terraform plan -out=myplan"
                 }
             }
         }
@@ -24,7 +24,7 @@ pipeline {
         }
         stage('TF apply'){
             steps{
-                powershell "terraform apply -var-file=terraform.tfvars -input=false -auto-approval"
+                powershell "terraform apply -var-file=terraform.tfvars -input=false -auto-approval myplan"
             }
         }
     }
