@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Example') {
             steps {
-                powershell """cd "C:/Users/stylvn077/Desktop/.terraform/new"; terraform --version """
+                powershell """cd "C:/Users/stylvn077/Desktop/.terraform/new"; terraform apply """
             }
         }
     }
