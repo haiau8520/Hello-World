@@ -1,14 +1,17 @@
 pipeline {
     agent any
     stages {
+        steps{
+            powershell """cd "C:/Users/stylvn077/Desktop/.terraform/new" """
+        }
         stage('Init') {
             steps {
-                powershell """cd "C:/Users/stylvn077/Desktop/.terraform/new"; terraform init """
+                powershell "terraform init"
             }
         }
         stage('TF Plan') {
             steps {
-                    powershell "terraform plan -out=myplan"
+                powershell "terraform plan -out=myplan"
                 
             }
         }
