@@ -1,18 +1,15 @@
 pipeline {
     agent any
     stages {
-        node{
-            steps{
-                powershell """cd "C:/Users/stylvn077/Desktop/.terraform/new" """
-            }
-        }
         stage('Init') {
             steps {
+                powershell """cd "C:/Users/stylvn077/Desktop/.terraform/new" """
                 powershell "terraform init"
             }
         }
         stage('TF Plan') {
             steps {
+                powershell """cd "C:/Users/stylvn077/Desktop/.terraform/new" """
                 powershell "terraform plan -out=myplan"
                 
             }
@@ -28,6 +25,7 @@ pipeline {
         }
         stage('TF apply'){
             steps{
+                powershell """cd "C:/Users/stylvn077/Desktop/.terraform/new" """
                 powershell "terraform apply -var-file=terraform.tfvars -input=false -auto-approval myplan"
             }
         }
