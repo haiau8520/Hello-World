@@ -3,14 +3,14 @@ pipeline {
     stages {
         stage('Init') {
             steps {
-                powershell """cd "C:/Users/stylvn077/Desktop/.terraform/new" """
-                powershell "terraform init"
+                powershell """cd "C:/Users/stylvn077/Desktop/.terraform/new"; terraform init """
+                 
             }
         }
         stage('TF Plan') {
             steps {
-                powershell """cd "C:/Users/stylvn077/Desktop/.terraform/new" """
-                powershell "terraform plan -out=myplan"
+                powershell """cd "C:/Users/stylvn077/Desktop/.terraform/new"; terraform plan -out=myplan """
+                
                 
             }
         }
@@ -25,8 +25,8 @@ pipeline {
         }
         stage('TF apply'){
             steps{
-                powershell """cd "C:/Users/stylvn077/Desktop/.terraform/new" """
-                powershell "terraform apply -var-file=terraform.tfvars -input=false -auto-approval myplan"
+                powershell """cd "C:/Users/stylvn077/Desktop/.terraform/new"; terraform apply -var-file=terraform.tfvars -input=false -auto-approval myplan """
+              
             }
         }
     }
